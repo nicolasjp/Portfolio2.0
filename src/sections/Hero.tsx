@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import memojiImage from "@/assets/images/memoji-computer.png";
 import Image from "next/image";
 import ArrowDown from "@/assets/icons/arrow-down.svg";
