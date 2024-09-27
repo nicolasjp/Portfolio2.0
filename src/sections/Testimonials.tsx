@@ -60,7 +60,7 @@ export const TestimonialsSection = () => {
       <div className="container">
         <SectionHeader 
           eyebrow="Happy Managers" 
-          title="What Managers Say about Me" 
+          title="What Managers Say About Me" 
           description="Don't just take my word for it. See what my managers and colleagues have to say about my work." 
         />
         <div className="mt-12 lg:mt-20 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)] py-4 -my-4">
