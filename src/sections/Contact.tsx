@@ -1,8 +1,13 @@
 /* eslint-disable react/no-unescaped-entities */
+'use client';
 import ArrowUpRightIcon from "@/assets/icons/arrow-up-right.svg";
 import grainImage from "@/assets/images/grain.jpg";
 
 export const ContactSection = () => {
+  const handleMailClick = () => {
+    window.location.href = "mailto:nicolas.jacob@toulouse.miage.fr?subject=Let's%20work%20together&body=Hi%20Nicolas,%0A%0AI%20would%20like%20to%20discuss%20a%20project%20with%20you.";
+  };
+
   return (
     <div className="py-16 pt-12 lg:py-24 lg:pt-20">
       <div className="container">
@@ -18,7 +23,7 @@ export const ContactSection = () => {
               </p>
             </div>
             <div>
-              <button className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900">
+              <button onClick={handleMailClick} className="text-white bg-gray-900 inline-flex items-center px-6 h-12 rounded-xl gap-2 w-max border border-gray-900">
                 <span className="font-semibold">Contact me</span>
                 <ArrowUpRightIcon className="size-4" />
               </button>
