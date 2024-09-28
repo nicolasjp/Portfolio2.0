@@ -17,3 +17,7 @@
         @apply lg:max-w-5xl;
     }
 }
+
+html {
+    scroll-behavior: smooth;
+  }
