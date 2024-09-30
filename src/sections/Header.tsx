@@ -7,7 +7,7 @@ export const Header = () => {
   useEffect(() => {
     const handleScroll = () => {
       const sections = ["home", "projects", "pro", "about"];
-      let currentSection = "home";
+      let currentSection = "about";
 
       sections.forEach((section) => {
         const element = document.getElementById(section);

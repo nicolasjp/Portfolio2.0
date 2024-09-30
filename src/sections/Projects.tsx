@@ -7,6 +7,7 @@ import TCPImg from "@/assets/images/tcp.png";
 import PortfolioImg from "@/assets/images/portfolio.png";
 import DailyGreenImg from "@/assets/images/dailyGreen.png";
 import KeycloakImg from "@/assets/images/keycloak.png";
+import LotteryImg from "@/assets/images/lotteryEther.jpg";
 
 import Image from 'next/image';
 import CheckCircleIcon from '@/assets/icons/check-circle.svg';
@@ -26,7 +27,7 @@ const portfolioProjects = [
       { title: "Solidity, Python, and Ganache" },
     ],
     link: "https://github.com/nicolasjp/EthereumLottery",
-    image: darkSaasLandingPage,
+    image: LotteryImg,
   },
   {
     company: "Games on Web competition",
