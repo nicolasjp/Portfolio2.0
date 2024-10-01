@@ -30,7 +30,8 @@ import BabylonIcon from "@/assets/icons/babylon.svg";
 import TypeScriptIcon from "@/assets/icons/typescript.svg";
 import NodejsIcon from "@/assets/icons/nodejs.svg";
 
-import mapImage from "@/assets/images/map.png";
+//import mapImage from "@/assets/images/map.png";
+import mapImage from "@/assets/images/toulouse.png";
 import smileMemoji from "@/assets/images/memoji-smile.png";
 import { CardHeader } from "@/components/CardHeader";
 import { ToolboxItems } from "@/components/ToolboxItems"; 
@@ -188,6 +189,48 @@ const hobbies = [
   }
 ]
 
+const formations = [
+  {
+    title: 'Master MIAGE parcours IDP @ Université Toulouse III - Paul Sabatier (2022-2024)',
+    emoji: '🧑‍💻',
+    left: '5%',
+    top: '-10%',
+  },
+  {
+    title: 'Licence MIASHS parcours MIAGE @ Université Toulouse III - Paul Sabatier (2019-2022)',
+    emoji: '🧑‍💻',
+    left: '5%',
+    top: '25%',
+  },
+  {
+    title: 'Brevet d\'Initiation à l\'Aéronautique (BIA) - (2015-2016)',
+    emoji: '✈️',
+    left: '5%',
+    top: '60%',
+  },
+]
+
+const certifications = [
+  {
+    title: 'Métiers de l\'ingénieur (Level 2) C2i @ Université Toulouse III - Paul Sabatier (2023-2024)',
+    emoji: '🌟',
+    left: '5%',
+    top: '-10%',
+  },
+  {
+    title: 'AWS Academy Cloud Foundations @ AWS Academy Cloud Foundations (2023)',
+    emoji: '🌟',//⭐
+    left: '5%',
+    top: '25%',
+  },
+  {
+    title: 'Language Assessment (Level C1-2) @ EF Auckland (2023)',
+    emoji: '🌟',
+    left: '5%',
+    top: '60%',
+  },
+]
+
 export const AboutSection = () => {
   const constraintRef = useRef(null);
 
@@ -220,6 +263,61 @@ export const AboutSection = () => {
               <ToolboxItems items={toolboxItems} className="mt-6" itemsWrapperClassName="animate-move-right [animation-duration:30s]" />
             </Card>
           </div>
+
+
+
+          <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-4 gap-8"> 
+            <Card className="h-[340px] md:h-[400px] lg:h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
+              <CardHeader 
+                title="Education" 
+                description="Have a look at my academic background."
+                className="px-6 py-6" 
+              />
+              <div className="relative flex-1" ref={constraintRef}>
+                {formations.map((formation) => (
+                  <motion.div key={formation.title} className="inline-flex items-center gap-2 px-2 lg:px-4 rounded-full py-1.5 absolute" 
+                    style={{
+                      left: formation.left,
+                      top: formation.top,
+                    }} 
+                    
+                    dragConstraints={constraintRef}
+                  >
+                    <span>{formation.emoji}</span>
+                    <span className="font-medium text-white/80 overflow-hidden break-words">{formation.title}</span>
+                    
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
+            <Card className="h-[340px] md:h-[400px] lg:h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
+              <CardHeader 
+                title="Certifications" 
+                description="Check out the certifications I've earned."
+                className="px-6 py-6" 
+              />
+              <div className="relative flex-1" ref={constraintRef}>
+                {certifications.map((certification) => (
+                  <motion.div key={certification.title} className="inline-flex items-center gap-2 px-2 rounded-full py-1.5 absolute" 
+                    style={{
+                      left: certification.left,
+                      top: certification.top,
+                    }} 
+                    
+                    dragConstraints={constraintRef}
+                  >
+                    <span>{certification.emoji}</span>
+                    <span className="font-medium text-white/80 overflow-hidden break-words">{certification.title}</span>
+                    
+                  </motion.div>
+                ))}
+              </div>
+            </Card>
+          </div>
+
+
+
+
           <div className="grid grid-cols-1 md:grid-cols-5 lg:grid-cols-3 gap-8"> 
             <Card className="h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader 
