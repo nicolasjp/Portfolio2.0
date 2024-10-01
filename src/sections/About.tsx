@@ -275,7 +275,7 @@ export const AboutSection = () => {
               />
               <div className="relative flex-1" ref={constraintRef}>
                 {formations.map((formation) => (
-                  <motion.div key={formation.title} className="inline-flex items-center gap-2 px-2 lg:px-4 rounded-full py-1.5 absolute" 
+                  <motion.div key={formation.title} className="inline-flex items-center gap-2 px-2 lg:px-4 rounded-full sm:py-4 md:py-1.5 lg:py-1.5 absolute" 
                     style={{
                       left: formation.left,
                       top: formation.top,
@@ -298,7 +298,7 @@ export const AboutSection = () => {
               />
               <div className="relative flex-1" ref={constraintRef}>
                 {certifications.map((certification) => (
-                  <motion.div key={certification.title} className="inline-flex items-center gap-2 px-2 rounded-full py-1.5 absolute" 
+                  <motion.div key={certification.title} className="inline-flex items-center gap-2 px-2 rounded-full sm:py-4 md:py-1.5 lg:py-1.5 absolute" 
                     style={{
                       left: certification.left,
                       top: certification.top,
