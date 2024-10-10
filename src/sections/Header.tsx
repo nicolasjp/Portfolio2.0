@@ -6,7 +6,7 @@ export const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["home", "projects", "experience", "about"];
+      const sections = ["home", "experience", "projects", "about"];
       let currentSection = "about";
 
       sections.forEach((section) => {
@@ -32,11 +32,11 @@ export const Header = () => {
         <a href="#home" className={`nav-item ${activeSection === "home" ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900" : ""}`}>
           Home
         </a>
-        <a href="#projects" className={`nav-item ${activeSection === "projects" ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900" : ""}`}>
-          Projects
-        </a>
         <a href="#experience" className={`nav-item ${activeSection === "experience" ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900" : ""}`}>
           Experience
+        </a>
+        <a href="#projects" className={`nav-item ${activeSection === "projects" ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900" : ""}`}>
+          Projects
         </a>
         <a href="#about" className={`nav-item ${activeSection === "about" ? "bg-white text-gray-900 hover:bg-white/70 hover:text-gray-900" : ""}`}>
           About
