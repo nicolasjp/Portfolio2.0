@@ -21,7 +21,7 @@ const footerLinks =[
 export const Footer = () => {
   const handlePdfClick = () => {
     window.open(
-      'https://raw.githubusercontent.com/nicolasjp/Portfolio/master/src/assets/EN_CV_Nicolas_JacobPeres.pdf',
+      'https://raw.githubusercontent.com/nicolasjp/Portfolio2.0/master/src/assets/EN_CV_Nicolas_JacobPeres.pdf',
       '_blank'
     );
   };
