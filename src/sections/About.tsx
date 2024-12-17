@@ -212,13 +212,13 @@ const formations = [
 
 const certifications = [
   {
-    title: 'Métiers de l\'ingénieur (Level 2) C2i @ Université Toulouse III - Paul Sabatier (2023-2024)',
-    emoji: '🌟',
+    title: '<strong>AWS Certified Cloud Practitioner @ AWS Training and Certification (25th October 2024)</strong>',
+    emoji: '🌐',
     left: '5%',
     top: '-10%',
   },
   {
-    title: 'AWS Academy Cloud Foundations @ AWS Academy Cloud Foundations (2023)',
+    title: 'Métiers de l\'ingénieur (Level 2) C2i @ Université Toulouse III - Paul Sabatier (2023-2024)',
     emoji: '🌟',//⭐
     left: '5%',
     top: '25%',
@@ -307,7 +307,7 @@ export const AboutSection = () => {
                     dragConstraints={constraintRef}
                   >
                     <span>{certification.emoji}</span>
-                    <span className="font-medium text-white/80 overflow-hidden break-words">{certification.title}</span>
+                    <span className="font-medium text-white/80 overflow-hidden break-words" dangerouslySetInnerHTML={{ __html: certification.title }} />
                     
                   </motion.div>
                 ))}
