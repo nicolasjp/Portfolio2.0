@@ -212,13 +212,13 @@ const formations = [
 
 const certifications = [
   {
-    title: '<strong>AWS Certified Solutions Architect (Associate) @ AWS Training and Certification (3rd January 2025)</strong>',
+    title: '<strong>AWS Certified Solutions Architect (Associate) @ AWS Training and Certification (3 January 2025)</strong>',
     emoji: '🌐',
     left: '5%',
     top: '-10%',
   },
   {
-    title: 'AWS Certified Cloud Practitioner @ AWS Training and Certification (25th October 2024)',
+    title: 'AWS Certified Cloud Practitioner @ AWS Training and Certification (25 October 2024)',
     emoji: '🌐',
     left: '5%',
     top: '25%',
