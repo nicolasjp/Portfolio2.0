@@ -212,23 +212,29 @@ const formations = [
 
 const certifications = [
   {
-    title: '<strong>AWS Certified Cloud Practitioner @ AWS Training and Certification (25th October 2024)</strong>',
+    title: '<strong>AWS Certified Solutions Architect (Associate) @ AWS Training and Certification (3rd January 2025)</strong>',
     emoji: '🌐',
     left: '5%',
     top: '-10%',
   },
   {
-    title: 'Métiers de l\'ingénieur (Level 2) C2i @ Université Toulouse III - Paul Sabatier (2023-2024)',
-    emoji: '🌟',//⭐
+    title: 'AWS Certified Cloud Practitioner @ AWS Training and Certification (25th October 2024)',
+    emoji: '🌐',
     left: '5%',
     top: '25%',
   },
   {
-    title: 'Language Assessment (Level C1-2) @ EF Auckland (2023)',
-    emoji: '🌟',
+    title: 'Métiers de l\'ingénieur (Level 2) C2i @ Université Toulouse III - Paul Sabatier (2023-2024)',
+    emoji: '🌟',//⭐
     left: '5%',
     top: '60%',
   },
+  // {
+  //   title: 'Language Assessment (Level C1-2) @ EF Auckland (2023)',
+  //   emoji: '🌟',
+  //   left: '5%',
+  //   top: '60%',
+  // },
 ]
 
 export const AboutSection = () => {
