@@ -9,7 +9,20 @@ import { twMerge } from "tailwind-merge";
 
 const experiences = [
   {
-    name: "Data Analyst for MAP A320",
+    name: "Cloud Data Engineer - Product Manager Data",
+    position: "May 2025 - November 2025 @ Airbus Atlantic",
+    text: [
+      "Provisioning and processing data in Azure through Big Data pipelines on Synapse (SQL/PySpark).",
+      "Managing a Master Data Management (MDM) system and a data warehouse, including the creation of business views.",
+      "Feeding and maintaining the Data Catalog (DataGalaxy) to ensure proper data referencing.",
+      "Monitoring data ingestions and MDM flows with Power BI dashboards.",
+      "Acting as an interface between business teams and ABAP developers, handling requirements, testing, and validation of SAP data extractions (via CHARM and Redmine).",
+    ],
+    avatar: airbusLogo,
+    color: "bg-blue-500",
+  },
+  {
+    name: "Data Engineer/Analyst for MAP A320",
     position: "September 2022 - August 2024 @ Airbus Operations",
     text: [
       "Created a Digital Control Room for the MAP A320, enabling real-time monitoring of production data.",
@@ -22,7 +35,7 @@ const experiences = [
     color: "bg-blue-500",
   },
   {
-    name: "Developer on production tool",
+    name: "Data Analyst",
     position: "August 2021 - August 2022 @ Airbus Defence and Space",
     text: [
       "Developed and maintained a production tool to centralize data from five distinct systems using Python and Visual Planning API.",
