@@ -29,6 +29,14 @@ import GitIcon from "@/assets/icons/git.svg";
 import BabylonIcon from "@/assets/icons/babylon.svg";
 import TypeScriptIcon from "@/assets/icons/typescript.svg";
 import NodejsIcon from "@/assets/icons/nodejs.svg";
+import AzureIcon from "@/assets/icons/azure.svg";
+import AWSIcon from "@/assets/icons/aws.svg";
+import DatabricksIcon from "@/assets/icons/databricks.svg";
+import ApacheSparkIcon from "@/assets/icons/apacheSpark.svg";
+import PowerBIIcon from "@/assets/icons/powerBI.svg";
+import ConfluenceIcon from "@/assets/icons/confluence.svg";
+import SynapseIcon from "@/assets/icons/synapse.svg";
+import LinuxIcon from "@/assets/icons/linux.svg";
 
 //import mapImage from "@/assets/images/map.png";
 import mapImage from "@/assets/images/toulouse.png";
@@ -40,20 +48,32 @@ import { useRef } from "react";
 
 const toolboxItems = [
   {
-    title: 'Oracle',
-    iconType: OracleIcon,
+    title: 'Azure Synapse',
+    iconType: SynapseIcon,
   },
   {
+    title: 'Databricks',
+    iconType: DatabricksIcon,
+  },
+  {
+    title: 'Apache Spark',
+    iconType: ApacheSparkIcon,
+  },
+   {
     title: 'SQL',
     iconType: SQLIcon,
   },
   {
-    title: 'MongoDB',
-    iconType: MongoDB,
+    title: 'Azure',
+    iconType: AzureIcon,
   },
   {
-    title: 'Neo4j',
-    iconType: Neo4jIcon,
+    title: 'AWS',
+    iconType: AWSIcon,
+  },
+  {
+    title: 'Power BI',
+    iconType: PowerBIIcon,
   },
   {
     title: 'Hadoop',
@@ -63,14 +83,9 @@ const toolboxItems = [
     title: 'Qlik',
     iconType: QlikIcon,
   },
-
   {
-    title: 'Keycloak',
-    iconType: KeycloakIcon,
-  },
-  {
-    title: 'RBAC',
-    iconType: RBACIcon,
+    title: 'Oracle',
+    iconType: OracleIcon,
   },
   {
     title: 'Python',
@@ -85,28 +100,12 @@ const toolboxItems = [
     iconType: JavaIcon,
   },
   {
-    title: 'TypeScript',
-    iconType: TypeScriptIcon,
+    title: 'Confluence',
+    iconType: ConfluenceIcon,
   },
   {
-    title: 'Node.js',
-    iconType: NodejsIcon,
-  },
-  {
-    title: 'React',
-    iconType: ReactIcon,
-  },
-  {
-    title: 'Docker',
-    iconType: DockerIcon,
-  },
-  {
-    title: 'Babylon.js',
-    iconType: BabylonIcon,
-  },  
-  {
-    title: 'Blender',
-    iconType: BlenderIcon,
+    title: 'Linux',
+    iconType: LinuxIcon,
   },
   {
     title: 'Git',
@@ -117,13 +116,53 @@ const toolboxItems = [
     iconType: GithubIcon,
   },
   {
-    title: 'Figma',
-    iconType: FigmaIcon,
+    title: 'Docker',
+    iconType: DockerIcon,
+  },
+   {
+    title: 'MongoDB',
+    iconType: MongoDB,
   },
   {
     title: 'Management',
     iconType: ManagementIcon,
   },  
+  // {
+  //   title: 'Neo4j',
+  //   iconType: Neo4jIcon,
+  // },
+  // {
+  //   title: 'Keycloak',
+  //   iconType: KeycloakIcon,
+  // },
+  // {
+  //   title: 'RBAC',
+  //   iconType: RBACIcon,
+  // },
+  // {
+  //   title: 'TypeScript',
+  //   iconType: TypeScriptIcon,
+  // },
+  // {
+  //   title: 'Node.js',
+  //   iconType: NodejsIcon,
+  // },
+  // {
+  //   title: 'React',
+  //   iconType: ReactIcon,
+  // },
+  // {
+  //   title: 'Babylon.js',
+  //   iconType: BabylonIcon,
+  // },  
+  // {
+  //   title: 'Blender',
+  //   iconType: BlenderIcon,
+  // },
+  // {
+  //   title: 'Figma',
+  //   iconType: FigmaIcon,
+  // },
 ]
 
 const hobbies = [
@@ -212,20 +251,20 @@ const formations = [
 
 const certifications = [
   {
-    title: '<strong>AWS Certified Solutions Architect (Associate) @ AWS Training and Certification (3 January 2025)</strong>',
-    emoji: '🌐',
+    title: '<strong>Databricks Certified Data Engineer Associate (9 March 2025)</strong>',
+    emoji: '🛢️',
     left: '5%',
     top: '-10%',
   },
   {
-    title: 'AWS Certified Cloud Practitioner @ AWS Training and Certification (25 October 2024)',
+    title: 'AWS Certified Solutions Architect (Associate) @ AWS Training and Certification (3 January 2025)',
     emoji: '🌐',
     left: '5%',
     top: '25%',
   },
   {
-    title: 'Métiers de l\'ingénieur (Level 2) C2i @ Université Toulouse III - Paul Sabatier (2023-2024)',
-    emoji: '🌟',//⭐
+    title: 'AWS Certified Cloud Practitioner @ AWS Training and Certification (25 October 2024)',
+    emoji: '🌐',//⭐
     left: '5%',
     top: '60%',
   },
