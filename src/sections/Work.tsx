@@ -1,3 +1,6 @@
+"use client";
+import { useState } from "react";
+
 import airbusLogo from "@/assets/images/airbus2.png";
 import { SectionHeader } from "@/components/SectionHeader";
 import Image from "next/image";
@@ -22,7 +25,7 @@ const experiences = [
     color: "bg-blue-500",
   },
   {
-    name: "Data Engineer/Analyst for MAP A320",
+    name: "Data Engineer / Analyst for MAP A320",
     position: "September 2022 - August 2024 @ Airbus Operations",
     text: [
       "Created a Digital Control Room for the MAP A320, enabling real-time monitoring of production data.",
@@ -49,50 +52,151 @@ const experiences = [
 ];
 
 export const WorkSection = () => {
-  return (
-    <div className="py-16 lg:py-24">
-      <div className="container">
-        <SectionHeader 
-          eyebrow="My professional journey"
-          title="A few of my past experiences" 
-          description="I've had the pleasure of working with some amazing people and companies. Check out my experiences below." 
-        />
-        <div className="mt-12 lg:mt-20 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_05%,black_95%,transparent)] py-4 -my-4">
-        <div className="flex flex-none gap-8 pr-8 animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
-            {[...new Array(2)].fill(0).map((_, index) => (
-              <Fragment key={index}>
-                {experiences.map((experience) => (
-                  <Card key={experience.name} className="max-w-xs md:max-w-md p-6 md:p-8 hover:-rotate-3 transition duration-300">
-                    <div className="flex gap-4 items-center">
-                      <div className={twMerge(experience.color,"size-14 inline-flex rounded-full items-center justify-center flex-shrink-0")}>
-                        <Image 
-                          src={experience.avatar} 
-                          alt={experience.name} 
-                          className="" 
-                        />
-                      </div>
-                      <div>
-                        <div className="font-semibold">{experience.name}</div>
-                        <div className="text-sm text-white/40">{experience.position}</div>
-                      </div>
-                    </div>
-                    <ul className="my-5 list-disc ml-5 space-y-2">
-                      {experience.text.map((point, index) => (
-                        <li key={`experience-point-${index}`}
-                          className="text-black-500/50 font-normal pl-1 text-sm"
-                        >
-                          {point}
-                        </li>
-                      ))}
-                    </ul>
-                      {/* <p className="mt-4 md:mt-6 text-sm md:text-base">{experience.text}</p> */}
-                  </Card>
+  const [currentIndex, setCurrentIndex] = useState(0);
+  
+    const prevSlide = () => {
+      setCurrentIndex((prev) =>
+        prev === 0 ? experiences.length - 1 : prev - 1
+      );
+    };
+  
+    const nextSlide = () => {
+      setCurrentIndex((prev) =>
+        prev === experiences.length - 1 ? 0 : prev + 1
+      );
+    };
+
+    return (
+        <div className="py-16 lg:py-24">
+          <div className="container">
+            <SectionHeader 
+              eyebrow="My professional journey"
+              title="A few of my past experiences" 
+              description="I've had the pleasure of working with some amazing people and companies. Check out my experiences below." 
+            />
+    
+            {/* Zone du carousel */}
+            <div className="relative mt-8 md:-mt-8 lg:mt-20 flex flex-col items-center">
+              <div className="relative w-full max-w-6xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+                <div className="flex items-center justify-center relative h-auto sm:h-[600px] lg:h-[380px]">
+                  {experiences.map((experience, index) => {
+                    const offset = index - currentIndex;
+                    let className =
+                      "absolute transition-all duration-500 ease-in-out flex justify-center w-full";
+    
+                    if (offset === 0) {
+                      className += " opacity-100 scale-100 z-10";
+                    } else if (offset === -1 || offset === experiences.length - 1) {
+                      className += " opacity-60 scale-95 -translate-x-1/2 z-0";
+                    } else if (offset === 1 || offset === -(experiences.length - 1)) {
+                      className += " opacity-60 scale-95 translate-x-1/2 z-0";
+                    } else {
+                      className += " opacity-0 scale-90 pointer-events-none";
+                    }
+    
+                    return (
+                      <Card
+                        key={experience.name}
+                        className={
+                          className +
+                          " h-[400px] w-[500px] lg:h-[380px] md:h-[380px] md:w-[600px] sm:h-[600px] sm:w-[325px] flex flex-col p-8 justify-center"
+                        }
+                      >
+                        <div className="flex gap-4 items-center">
+                          <div className="size-16 bg-gray-700 inline-flex rounded-full items-center justify-center flex-shrink-0">
+                            <Image
+                              src={experience.avatar}
+                              alt={experience.name}
+                              width={64}
+                              height={64}
+                              className="rounded-full"
+                            />
+                          </div>
+                          <div>
+                            <div className="font-semibold text-lg">{experience.name}</div>
+                            <div className="text-sm text-white/40">
+                              {experience.position}
+                            </div>
+                          </div>
+                        </div>
+                        <ul className="my-5 list-disc ml-5 space-y-2">
+                          {experience.text.map((point, index) => (
+                            <li key={`experience-point-${index}`}
+                              className="text-black-500/50 font-normal pl-1 text-sm"
+                            >
+                              {point}
+                            </li>
+                          ))}
+                        </ul>
+                      </Card>
+                    );
+                  })}
+                </div>
+              </div>
+    
+              {/* Bullet points */}
+              <div className="flex gap-4 mt-6 md:-mt-4 md:mb-4 lg:mt-16 lg:mb-0 z-20 relative">
+                {experiences.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentIndex(index)}
+                    className={`w-3 h-3 rounded-full transition-all ${
+                      index === currentIndex ? "bg-white" : "bg-white/40"
+                    }`}
+                  ></button>
                 ))}
-              </Fragment>
-            ))}
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-    </div>
-  );
+      );
+
+  // return (
+  //   <div className="py-16 lg:py-24">
+  //     <div className="container">
+  //       <SectionHeader 
+  //         eyebrow="My professional journey"
+  //         title="A few of my past experiences" 
+  //         description="I've had the pleasure of working with some amazing people and companies. Check out my experiences below." 
+  //       />
+  //       <div className="mt-12 lg:mt-20 flex overflow-x-clip [mask-image:linear-gradient(to_right,transparent,black_05%,black_95%,transparent)] py-4 -my-4">
+  //       <div className="flex flex-none gap-8 pr-8 animate-move-left [animation-duration:90s] hover:[animation-play-state:paused]">
+  //           {[...new Array(2)].fill(0).map((_, index) => (
+  //             <Fragment key={index}>
+  //               {experiences.map((experience) => (
+  //                 <Card key={experience.name} className="max-w-xs md:max-w-md p-6 md:p-8 hover:-rotate-3 transition duration-300">
+  //                   <div className="flex gap-4 items-center">
+  //                     <div className={twMerge(experience.color,"size-14 inline-flex rounded-full items-center justify-center flex-shrink-0")}>
+  //                       <Image 
+  //                         src={experience.avatar} 
+  //                         alt={experience.name} 
+  //                         className="" 
+  //                       />
+  //                     </div>
+  //                     <div>
+  //                       <div className="font-semibold">{experience.name}</div>
+  //                       <div className="text-sm text-white/40">{experience.position}</div>
+  //                     </div>
+  //                   </div>
+  //                   <ul className="my-5 list-disc ml-5 space-y-2">
+  //                     {experience.text.map((point, index) => (
+  //                       <li key={`experience-point-${index}`}
+  //                         className="text-black-500/50 font-normal pl-1 text-sm"
+  //                       >
+  //                         {point}
+  //                       </li>
+  //                     ))}
+  //                   </ul>
+  //                     {/* <p className="mt-4 md:mt-6 text-sm md:text-base">{experience.text}</p> */}
+  //                 </Card>
+  //               ))}
+  //             </Fragment>
+  //           ))}
+  //         </div>
+  //       </div>
+  //     </div>
+  //   </div>
+  // );
 };
+
+

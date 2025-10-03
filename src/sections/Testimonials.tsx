@@ -116,7 +116,7 @@ export const TestimonialsSection = () => {
                         </div>
                       </div>
                     </div>
-                    <p className="mt-6 text-base md:text-lg flex-1 overflow-hidden text-ellipsis">
+                    <p className="ml-4 mt-6 text-base md:text-lg overflow-hidden text-ellipsis">
                       {testimonial.text}
                     </p>
                   </Card>
