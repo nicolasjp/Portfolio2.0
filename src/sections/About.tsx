@@ -230,19 +230,19 @@ const hobbies = [
 
 const formations = [
   {
-    title: 'Master MIAGE parcours IDP @ Université Toulouse III - Paul Sabatier (2022-2024)',
+    title: 'Master MIAGE - IDP course @ UT3 - Paul Sabatier (2022-2024)',
     emoji: '🧑‍💻',
     left: '5%',
     top: '-10%',
   },
   {
-    title: 'Licence MIASHS parcours MIAGE @ Université Toulouse III - Paul Sabatier (2019-2022)',
+    title: 'MIASHS bachelor\'s degree @ UT3 - Paul Sabatier (2019-2022)',
     emoji: '🧑‍💻',
     left: '5%',
     top: '25%',
   },
   {
-    title: 'Brevet d\'Initiation à l\'Aéronautique (BIA) - (2015-2016)',
+    title: 'Certificate of Initiation in Aeronautics (BIA) - (2015-2016)',
     emoji: '✈️',
     left: '5%',
     top: '60%',
@@ -251,19 +251,19 @@ const formations = [
 
 const certifications = [
   {
-    title: '<strong>Databricks Certified Data Engineer Associate (9 March 2025)</strong>',
-    emoji: '🛢️',
+    title: '<strong>Databricks Certified Data Engineer Associate (March 2025)</strong>',
+    emoji: '💻',
     left: '5%',
     top: '-10%',
   },
   {
-    title: 'AWS Certified Solutions Architect (Associate) @ AWS Training and Certification (3 January 2025)',
+    title: 'AWS Certified Solutions Architect - Associate (January 2025)',
     emoji: '🌐',
     left: '5%',
     top: '25%',
   },
   {
-    title: 'AWS Certified Cloud Practitioner @ AWS Training and Certification (25 October 2024)',
+    title: 'AWS Certified Cloud Practitioner (October 2024)',
     emoji: '🌐',//⭐
     left: '5%',
     top: '60%',
@@ -312,7 +312,7 @@ export const AboutSection = () => {
 
 
           <div className="grid grid-cols-1 md:grid-cols-6 lg:grid-cols-4 gap-8"> 
-            <Card className="h-[340px] md:h-[400px] lg:h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
+            <Card className="h-[320px] md:h-[340px] lg:h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader 
                 title="Education" 
                 description="Have a look at my academic background."
@@ -335,7 +335,7 @@ export const AboutSection = () => {
                 ))}
               </div>
             </Card>
-            <Card className="h-[340px] md:h-[400px] lg:h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
+            <Card className="h-[320px] md:h-[340px] lg:h-[320px] p-0 flex flex-col md:col-span-3 lg:col-span-2">
               <CardHeader 
                 title="Certifications" 
                 description="Check out the certifications I've earned."
@@ -343,7 +343,7 @@ export const AboutSection = () => {
               />
               <div className="relative flex-1" ref={constraintRef}>
                 {certifications.map((certification) => (
-                  <motion.div key={certification.title} className="inline-flex items-center gap-2 px-2 rounded-full sm:py-4 md:py-1.5 lg:py-1.5 absolute" 
+                  <motion.div key={certification.title} className="inline-flex items-center gap-2 px-2 lg:px-4 rounded-full sm:py-4 md:py-1.5 lg:py-1.5 absolute" 
                     style={{
                       left: certification.left,
                       top: certification.top,
