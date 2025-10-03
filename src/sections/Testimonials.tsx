@@ -73,7 +73,7 @@ export const TestimonialsSection = () => {
         />
 
         {/* Zone du carousel */}
-        <div className="relative mt-12 lg:mt-20 flex flex-col items-center">
+        <div className="relative mt-8 md:-mt-2 lg:mt-20 flex flex-col items-center">
           <div className="relative w-full max-w-6xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
             <div className="flex items-center justify-center relative h-auto sm:h-[550px] lg:h-[380px]">
               {testimonials.map((testimonial, index) => {
