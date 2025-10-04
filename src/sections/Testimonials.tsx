@@ -50,6 +50,8 @@ const testimonials = [
 
 export const TestimonialsSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
   const prevSlide = () => {
     setCurrentIndex((prev) =>
@@ -63,6 +65,29 @@ export const TestimonialsSection = () => {
     );
   };
 
+  // gestion du swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const swipeDistance = touchStartX - touchEndX;
+
+    if (swipeDistance > 50) {
+      nextSlide(); // swipe gauche → suivant
+    } else if (swipeDistance < -50) {
+      prevSlide(); // swipe droite → précédent
+    }
+
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
   return (
     <div className="py-16 lg:py-24">
       <div className="container">
@@ -73,7 +98,12 @@ export const TestimonialsSection = () => {
         />
 
         {/* Zone du carousel */}
-        <div className="relative mt-8 md:-mt-2 lg:mt-20 flex flex-col items-center">
+        <div
+          className="relative mt-8 md:-mt-2 lg:mt-20 flex flex-col items-center"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
           <div className="relative w-full max-w-6xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
             <div className="flex items-center justify-center relative h-auto sm:h-[425px] lg:h-[380px]">
               {testimonials.map((testimonial, index) => {
