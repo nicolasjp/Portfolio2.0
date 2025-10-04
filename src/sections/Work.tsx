@@ -53,103 +53,134 @@ const experiences = [
 
 export const WorkSection = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
-  
-    const prevSlide = () => {
-      setCurrentIndex((prev) =>
-        prev === 0 ? experiences.length - 1 : prev - 1
-      );
-    };
-  
-    const nextSlide = () => {
-      setCurrentIndex((prev) =>
-        prev === experiences.length - 1 ? 0 : prev + 1
-      );
-    };
+  const [touchStartX, setTouchStartX] = useState<number | null>(null);
+  const [touchEndX, setTouchEndX] = useState<number | null>(null);
 
-    return (
-        <div className="py-16 lg:py-24">
-          <div className="container">
-            <SectionHeader 
-              eyebrow="My professional journey"
-              title="A few of my past experiences" 
-              description="I've had the pleasure of working with some amazing people and companies. Check out my experiences below." 
-            />
-    
-            {/* Zone du carousel */}
-            <div className="relative mt-8 md:-mt-8 lg:mt-20 flex flex-col items-center">
-              <div className="relative w-full max-w-6xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-                <div className="flex items-center justify-center relative h-auto sm:h-[610px] lg:h-[380px]">
-                  {experiences.map((experience, index) => {
-                    const offset = index - currentIndex;
-                    let className =
-                      "absolute transition-all duration-500 ease-in-out flex justify-center w-full";
-    
-                    if (offset === 0) {
-                      className += " opacity-100 scale-100 z-10";
-                    } else if (offset === -1 || offset === experiences.length - 1) {
-                      className += " opacity-60 scale-95 -translate-x-1/2 z-0";
-                    } else if (offset === 1 || offset === -(experiences.length - 1)) {
-                      className += " opacity-60 scale-95 translate-x-1/2 z-0";
-                    } else {
-                      className += " opacity-0 scale-90 pointer-events-none";
+  const prevSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === 0 ? experiences.length - 1 : prev - 1
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) =>
+      prev === experiences.length - 1 ? 0 : prev + 1
+    );
+  };
+
+  // Gestion du swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStartX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEndX(e.targetTouches[0].clientX);
+  };
+
+  const handleTouchEnd = () => {
+    if (!touchStartX || !touchEndX) return;
+    const swipeDistance = touchStartX - touchEndX;
+
+    if (swipeDistance > 50) {
+      nextSlide(); // swipe gauche → suivant
+    } else if (swipeDistance < -50) {
+      prevSlide(); // swipe droite → précédent
+    }
+
+    setTouchStartX(null);
+    setTouchEndX(null);
+  };
+
+  return (
+    <div className="py-16 lg:py-24">
+      <div className="container">
+        <SectionHeader
+          eyebrow="My professional journey"
+          title="A few of my past experiences"
+          description="I've had the pleasure of working with some amazing people and companies. Check out my experiences below."
+        />
+
+        {/* Zone du carousel */}
+        <div
+          className="relative mt-8 md:-mt-8 lg:mt-20 flex flex-col items-center"
+          onTouchStart={handleTouchStart}
+          onTouchMove={handleTouchMove}
+          onTouchEnd={handleTouchEnd}
+        >
+          <div className="relative w-full max-w-6xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
+            <div className="flex items-center justify-center relative h-auto sm:h-[590px] lg:h-[380px]">
+              {experiences.map((experience, index) => {
+                const offset = index - currentIndex;
+                let className =
+                  "absolute transition-all duration-500 ease-in-out flex justify-center w-full";
+
+                if (offset === 0) {
+                  className += " opacity-100 scale-100 z-10";
+                } else if (offset === -1 || offset === experiences.length - 1) {
+                  className += " opacity-60 scale-95 -translate-x-1/2 z-0";
+                } else if (offset === 1 || offset === -(experiences.length - 1)) {
+                  className += " opacity-60 scale-95 translate-x-1/2 z-0";
+                } else {
+                  className += " opacity-0 scale-90 pointer-events-none";
+                }
+
+                return (
+                  <Card
+                    key={experience.name}
+                    className={
+                      className +
+                      " h-[400px] w-[500px] lg:h-[380px] md:h-[380px] md:w-[600px] sm:h-[590px] sm:w-[325px] flex flex-col p-8 justify-center"
                     }
-    
-                    return (
-                      <Card
-                        key={experience.name}
-                        className={
-                          className +
-                          " h-[400px] w-[500px] lg:h-[380px] md:h-[380px] md:w-[600px] sm:h-[610px] sm:w-[325px] flex flex-col p-8 justify-center"
-                        }
-                      >
-                        <div className="flex gap-4 items-center sm:mt-4">
-                          <div className="size-16 bg-gray-700 inline-flex rounded-full items-center justify-center flex-shrink-0">
-                            <Image
-                              src={experience.avatar}
-                              alt={experience.name}
-                              width={64}
-                              height={64}
-                              className="rounded-full"
-                            />
-                          </div>
-                          <div>
-                            <div className="font-semibold text-lg">{experience.name}</div>
-                            <div className="text-sm text-white/40">
-                              {experience.position}
-                            </div>
-                          </div>
+                  >
+                    <div className="flex gap-4 items-center sm:mt-4">
+                      <div className="size-16 bg-gray-700 inline-flex rounded-full items-center justify-center flex-shrink-0">
+                        <Image
+                          src={experience.avatar}
+                          alt={experience.name}
+                          width={64}
+                          height={64}
+                          className="rounded-full"
+                        />
+                      </div>
+                      <div>
+                        <div className="font-semibold text-lg">{experience.name}</div>
+                        <div className="text-sm text-white/40">
+                          {experience.position}
                         </div>
-                        <ul className="my-5 list-disc ml-5 space-y-2">
-                          {experience.text.map((point, index) => (
-                            <li key={`experience-point-${index}`}
-                              className="text-black-500/50 font-normal pl-1 text-sm"
-                            >
-                              {point}
-                            </li>
-                          ))}
-                        </ul>
-                      </Card>
-                    );
-                  })}
-                </div>
-              </div>
-    
-              {/* Bullet points */}
-              <div className="flex gap-4 mt-8 md:-mt-12 md:mb-4 lg:mt-16 lg:mb-0 z-20 relative">
-                {experiences.map((_, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setCurrentIndex(index)}
-                    className={`w-3 h-3 rounded-full transition-all ${
-                      index === currentIndex ? "bg-white" : "bg-white/40"
-                    }`}
-                  ></button>
-                ))}
-              </div>
+                      </div>
+                    </div>
+                    <ul className="my-5 list-disc ml-5 space-y-2">
+                      {experience.text.map((point, index) => (
+                        <li
+                          key={`experience-point-${index}`}
+                          className="text-black-500/50 font-normal pl-1 text-sm"
+                        >
+                          {point}
+                        </li>
+                      ))}
+                    </ul>
+                  </Card>
+                );
+              })}
             </div>
           </div>
+
+          {/* Bullet points */}
+          <div className="flex gap-4 mt-8 md:-mt-12 md:mb-4 lg:mt-16 lg:mb-0 z-20 relative">
+            {experiences.map((_, index) => (
+              <button
+                key={index}
+                onClick={() => setCurrentIndex(index)}
+                className={`w-3 h-3 rounded-full transition-all ${
+                  index === currentIndex ? "bg-white" : "bg-white/40"
+                }`}
+              ></button>
+            ))}
+          </div>
         </div>
-      );
+      </div>
+    </div>
+  );
 
   // return (
   //   <div className="py-16 lg:py-24">
