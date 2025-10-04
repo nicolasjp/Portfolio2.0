@@ -19,7 +19,7 @@ const experiences = [
       "Managing a Master Data Management (MDM) system and a data warehouse, including the creation of business views.",
       "Feeding and maintaining the Data Catalog (DataGalaxy) to ensure proper data referencing.",
       "Monitoring data ingestions and MDM flows with Power BI dashboards.",
-      "Acting as an interface between business teams and ABAP developers, handling requirements, testing, and validation of SAP data extractions (via CHARM and Redmine).",
+      "Interface between business teams and ABAP developers, handling requirements, testing, and validation of SAP data extractions (via CHARM and Redmine).",
     ],
     avatar: airbusLogo,
     color: "bg-blue-500",
@@ -78,7 +78,7 @@ export const WorkSection = () => {
             {/* Zone du carousel */}
             <div className="relative mt-8 md:-mt-8 lg:mt-20 flex flex-col items-center">
               <div className="relative w-full max-w-6xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-                <div className="flex items-center justify-center relative h-auto sm:h-[600px] lg:h-[380px]">
+                <div className="flex items-center justify-center relative h-auto sm:h-[610px] lg:h-[380px]">
                   {experiences.map((experience, index) => {
                     const offset = index - currentIndex;
                     let className =
@@ -99,10 +99,10 @@ export const WorkSection = () => {
                         key={experience.name}
                         className={
                           className +
-                          " h-[400px] w-[500px] lg:h-[380px] md:h-[380px] md:w-[600px] sm:h-[600px] sm:w-[325px] flex flex-col p-8 justify-center"
+                          " h-[400px] w-[500px] lg:h-[380px] md:h-[380px] md:w-[600px] sm:h-[610px] sm:w-[325px] flex flex-col p-8 justify-center"
                         }
                       >
-                        <div className="flex gap-4 items-center">
+                        <div className="flex gap-4 items-center sm:mt-4">
                           <div className="size-16 bg-gray-700 inline-flex rounded-full items-center justify-center flex-shrink-0">
                             <Image
                               src={experience.avatar}
@@ -135,7 +135,7 @@ export const WorkSection = () => {
               </div>
     
               {/* Bullet points */}
-              <div className="flex gap-4 mt-6 md:-mt-4 md:mb-4 lg:mt-16 lg:mb-0 z-20 relative">
+              <div className="flex gap-4 mt-8 md:-mt-12 md:mb-4 lg:mt-16 lg:mb-0 z-20 relative">
                 {experiences.map((_, index) => (
                   <button
                     key={index}

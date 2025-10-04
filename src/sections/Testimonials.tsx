@@ -43,7 +43,7 @@ const testimonials = [
   {
     name: "Nicolas B.",
     position: "HO Data Analytics @ Airbus Atlantic",
-    text: "Nicolas is a valuable asset, recognised by his peers for his commitment and ability to turn technical challenges into concrete successes. He possesses both the technical rigour of an excellent Data Engineer and the intellectual curiosity that ensures rapid adaptation to future technological developments. I am convinced that Nicolas will be a major asset to any organisation looking for a skilled, autonomous Data Engineer who is able to integrate quickly.",
+    text: "Nicolas is a valuable asset, he possesses both the technical rigour of an excellent Data Engineer and the intellectual curiosity that ensures rapid adaptation to future technological developments. I am convinced that Nicolas will be a major asset to any organisation looking for a skilled, autonomous Data Engineer who is able to integrate quickly.",
     avatar: memojiAvatar3,
   },
 ];
@@ -75,7 +75,7 @@ export const TestimonialsSection = () => {
         {/* Zone du carousel */}
         <div className="relative mt-8 md:-mt-2 lg:mt-20 flex flex-col items-center">
           <div className="relative w-full max-w-6xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-            <div className="flex items-center justify-center relative h-auto sm:h-[550px] lg:h-[380px]">
+            <div className="flex items-center justify-center relative h-auto sm:h-[425px] lg:h-[380px]">
               {testimonials.map((testimonial, index) => {
                 const offset = index - currentIndex;
                 let className =
@@ -96,7 +96,7 @@ export const TestimonialsSection = () => {
                     key={testimonial.name}
                     className={
                       className +
-                      " h-[400px] w-[500px] lg:h-[380px] md:h-[380px] md:w-[600px] sm:h-[525px] sm:w-[325px] flex flex-col p-8 justify-center"
+                      " h-[400px] w-[500px] lg:h-[325px] md:h-[325px] md:w-[600px] sm:h-[425px] sm:w-[325px] flex flex-col p-8 justify-center"
                     }
                   >
                     <div className="flex gap-4 items-center">
@@ -126,7 +126,7 @@ export const TestimonialsSection = () => {
           </div>
 
           {/* Bullet points */}
-          <div className="flex gap-4 mt-6 md:-mt-4 md:mb-24 lg:mt-16 lg:mb-4 z-20 relative">
+          <div className="flex gap-4 mt-8 md:mt-4 md:mb-24 lg:mt-8 lg:mb-4 z-20 relative">
             {testimonials.map((_, index) => (
               <button
                 key={index}
