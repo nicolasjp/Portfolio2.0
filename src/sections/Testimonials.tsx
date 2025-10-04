@@ -105,7 +105,7 @@ export const TestimonialsSection = () => {
           onTouchEnd={handleTouchEnd}
         >
           <div className="relative w-full max-w-6xl overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_15%,black_85%,transparent)]">
-            <div className="flex items-center justify-center relative h-auto sm:h-[425px] lg:h-[380px]">
+            <div className="flex items-center justify-center relative h-auto sm:h-[470px] lg:h-[380px]">
               {testimonials.map((testimonial, index) => {
                 const offset = index - currentIndex;
                 let className =
@@ -126,7 +126,7 @@ export const TestimonialsSection = () => {
                     key={testimonial.name}
                     className={
                       className +
-                      " h-[400px] w-[500px] lg:h-[325px] md:h-[325px] md:w-[600px] sm:h-[425px] sm:w-[325px] flex flex-col p-8 justify-center"
+                      " h-[400px] w-[500px] lg:h-[325px] md:h-[325px] md:w-[600px] sm:h-[470px] sm:w-[325px] flex flex-col p-8 justify-center"
                     }
                   >
                     <div className="flex gap-4 items-center">
