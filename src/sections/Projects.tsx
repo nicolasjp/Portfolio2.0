@@ -8,6 +8,7 @@ import PortfolioImg from "@/assets/images/portfolio.png";
 import DailyGreenImg from "@/assets/images/dailyGreen.png";
 import KeycloakImg from "@/assets/images/keycloak.png";
 import LotteryImg from "@/assets/images/lotteryEther.jpg";
+import SkyDataLabImg from "@/assets/images/im2.png";
 
 import Image from 'next/image';
 import CheckCircleIcon from '@/assets/icons/check-circle.svg';
@@ -17,6 +18,19 @@ import { SectionHeader } from "@/components/SectionHeader";
 import { Card } from "@/components/Card";
 
 const portfolioProjects = [
+  {
+    company: "Personal project",
+    year: "2025",
+    title: "Sky Data Lab",
+    results: [
+      { title: "Data Eng project on flight data" },
+      { title: "Azure Synapse, SQL and Power BI" },
+      { title: "From raw data to insightful KPIs" },
+      { title: "Flight punctuality and delay causes"}
+    ],
+    link: "https://github.com/nicolasjp/SkyDataLab",
+    image: SkyDataLabImg,
+  },
   {
     company: "University/Personal project",
     year: "2024",
